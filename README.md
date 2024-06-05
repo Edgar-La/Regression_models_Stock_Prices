@@ -77,3 +77,66 @@ Thats why we flateen our data. Previously oru data has a shape of (7,5), now wil
 ### Normalize data
 We implement a normalization using standard-deviation like:
 $$z = \frac{X - \mu}{\sigma}$$
+
+
+## Regressor models
+### Random Forest Regressor
+It's an ensemble learning method that operates by constructing a multitude of decision trees during training time and outputting the mean prediction of the individual trees for regression problems. It's known for its robustness against overfitting and high performance.
+### Gradient Boosting Regressor
+It's another ensemble method that builds trees one at a time, where each new tree helps to correct errors made by the previously trained set of trees. Gradient boosting tends to be more sensitive to overfitting than Random Forests but can often yield better performance if tuned correctly.
+### Extra Trees Regressor
+This is similar to Random Forests, but with one key difference: instead of searching for the best split point in the feature when building trees, it selects a random split point. This randomization can lead to faster training times and sometimes better performance, especially for high-dimensional data.
+
+## Train and predict
+The previously regressor models where implemented directly from the scikit-learn modules.
+* the trainning was implemented with the `fit()` method on the train split data
+* and the prediction with the `predict()` method with the test split data
+
+## Pathway
+The following image shows the steps summarized in this project, notice that the last plots shows the results of prediction values for _Close_ for each regressor model.
+<p align="center">
+  <img src="https://github.com/Edgar-La/Regression_models_Stock_Prices/blob/main/images/regression_outputs_comparison.png" alt="pathway" width="1000"/> </a>
+ </p>
+
+## Actual vs Predicted
+In this image, we can see a comparison for the actual values and th predicted ones for each regressor.
+<p align="center">
+  <img src="https://github.com/Edgar-La/Regression_models_Stock_Prices/blob/main/images/actual_vs_predicted.png" alt="actual-predicted" width="1000"/> </a>
+ </p>
+ 
+## Residual analysis
+In this image, we can see a comparison for the residual analysis for each regressor.
+<p align="center">
+  <img src="https://github.com/Edgar-La/Regression_models_Stock_Prices/blob/main/images/residual_analysis.png" alt="residual" width="1000"/> </a>
+ </p>
+ 
+## Metrics chart
+In this plot, we can observe a summarization of the metrics calculated for each regressors model.
+<p align="center">
+  <img src="https://github.com/Edgar-La/Regression_models_Stock_Prices/blob/main/images/metrics.png" alt="metrics-plot" width="1000"/> </a>
+ </p>
+
+
+ ## Results: Regressor quality
+As we can observe, the regressor models have a very similar behaviour in all the seven metrics calculated. Nevertheless, the Random Forest Regressor show an slightly improvement in the metrics.
+|         Regressors        |   MSE   |  RMSE  |   MAE   |   RSE   |   RAE   |    R    |    R2    |
+|---------------------------|---------|--------|---------|---------|---------|---------|----------|
+|    RandomForestReg        |  9.4215 | 3.0694 |  1.9152 |  3.1258 |  0.3232 |  0.8926 |   0.7743 |
+| GradientBoostingReg       |  9.7311 | 3.1195 |  2.0224 |  3.1767 |  0.3412 |  0.8867 |   0.7668 |
+|      ExtraTreesReg        | 10.3404 | 3.2157 |  1.9526 |  3.2747 |  0.3295 |  0.8800 |   0.7522 |
+
+# Conclussions
+Regression analysis is a powerful tool for understanding relationships between variables and making predictions. By carefully considering the assumptions and properly interpreting the results, regression models can provide valuable insights in many fields, from economics and finance to biology and engineering.
+
+In this project, we explored various metrics to evaluate the performance of regression models. The metrics we focused on included Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), Relative Squared Error (RSE), Relative Absolute Error (RAE), Mean Absolute Percentage Error (MAPE), the Correlation Coefficient (R), and the Coefficient of Determination (R2).
+
+Each metric provides unique insights into the performance of regression models:
+* MSE and RMSE are useful for understanding the average magnitude of errors, with RMSE being particularly interpretable due to its same units as the dependent variable.
+* MAE offers a robust measure less sensitive to outliers compared to MSE and RMSE.
+* RSE and RAE provide relative measures comparing model performance to a baseline model, with values closer to 0 indicating superior performance.
+* R helps assess the strength and direction of the linear relationship between actual and predicted values, with values closer to 1 or -1 indicating stronger linear relationships.
+* R2 indicates the proportion of variance in the dependent variable explained by the independent variables, with higher values signifying better model fit.
+
+The comprehensive evaluation using these metrics allows an understanding of model performance. For example, while a model might exhibit low MSE and RMSE, indicating small average errors, it could still have high RSE or RAE values if the baseline model performs similarly well. Similarly, a high R2 value signifies that a significant portion of the variance is explained by the model, but it doesn’t provide information about the actual size of prediction errors, which metrics like MAE and RMSE do.
+
+In conclusion, employing a diverse set of evaluation metrics provides a holistic view of the regression model’s effectiveness, enabling more informed decisions in model selection and refinement. The combination of these metrics ensures that the models not only fit the data well but also generalize effectively to new data, ultimately leading to more accurate and reliable predictions in practical applications.
