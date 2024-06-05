@@ -119,11 +119,13 @@ In this plot, we can observe a summarization of the metrics calculated for each 
 
  ## Results: Regressor quality
 As we can observe, the regressor models have a very similar behaviour in all the seven metrics calculated. Nevertheless, the Random Forest Regressor show an slightly improvement in the metrics.
-|         Regressors        |   MSE   |  RMSE  |   MAE   |   RSE   |   RAE   |    R    |    R2    |
-|---------------------------|---------|--------|---------|---------|---------|---------|----------|
-|    RandomForestReg        |  9.4215 | 3.0694 |  1.9152 |  3.1258 |  0.3232 |  0.8926 |   0.7743 |
-| GradientBoostingReg       |  9.7311 | 3.1195 |  2.0224 |  3.1767 |  0.3412 |  0.8867 |   0.7668 |
-|      ExtraTreesReg        | 10.3404 | 3.2157 |  1.9526 |  3.2747 |  0.3295 |  0.8800 |   0.7522 |
+| Regressors            |   MSE   |  RMSE  |   MAE   |   RSE   |   RAE   |    R    |    R2    |
+|-----------------------|---------|--------|---------|---------|---------|---------|---------|
+| RandomForestReg       |  9.4459 | 3.0734 |  1.9380 |  3.1298 |  0.3270 |  0.8927 |  0.7737 |
+| GradientBoostingReg   |  9.9440 | 3.1534 |  2.0396 |  3.2113 |  0.3441 |  0.8845 |  0.7617 |
+| ExtraTreesReg         | 10.3015 | 3.2096 |  1.9351 |  3.2685 |  0.3265 |  0.8804 |  0.7532 |
+
+
 
 # Conclussions
 Regression analysis is a powerful tool for understanding relationships between variables and making predictions. By carefully considering the assumptions and properly interpreting the results, regression models can provide valuable insights in many fields, from economics and finance to biology and engineering.
