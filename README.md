@@ -2,7 +2,7 @@
 
 
 
-The goal of this notebook is to implement classic regression models and implement metrics to calculate the quality of the regressors, aslo show some interesting plots that tells the steps involved.
+The goal of this notebook is to implement classic regression models and implement metrics from scratch to calculate the quality of the regressors, aslo show some interesting plots that tells the steps involved.
 Join me on this funny journey :coffee:
 
 ## Tools
@@ -15,4 +15,18 @@ Join me on this funny journey :coffee:
 
 ## Dataset
 In this project we use data from the SBUX stock market. The data goes from 2019-06-05 to 2024-06-05.
-The data was extracted directly from Yahoo Finance using the API and the library yfinance.
+The data was extracted directly from Yahoo Finance using the API and the library [yfinance](https://pypi.org/project/yfinance/).
+
+## Metrics
+| **Metric** | **Formula** | **Interpretation** |
+|------------|-------------|--------------------|
+| MSE | $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$ | Lower values indicate a better fit |
+| RMSE | $$RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$$ | Lower values indicate a better fit, same units as \( y \) |
+| MAE | $$MAE = \frac{1}{n} \sum_{i=1}^{n} \|y_i - \hat{y}_i\|$$ | Lower values indicate a better fit |
+| RSE | $$RSE = \frac{\sum_{i=1}^{n} (y_i - \hat{y}\_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}$$ | Values closer to 0 indicate a better fit |
+| RAE | $$RAE = \frac{\sum_{i=1}^{n} \|y_i - \hat{{y}\_i} \| }{\sum_{i=1}^{n} \|y_i - \bar{y}\|}$$ | Values closer to 0 indicate a better fit |
+| R | $$R = \frac{\sum_{i=1}^{n} (y_i - \bar{y})(\hat{y}\_i - \bar{\hat{y}})}{\sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2 \sum_{i=1}^{n} (\hat{y}_i - \bar{\hat{y}})^2}}$$ | Values closer to 1 or -1 indicate a strong linear relationship |
+| $$R^2$$ | $$R^2 = 1 - \frac{ \sum_{i=1}^{n} (y_{i} - \hat{y}\_{i})^2}{ \sum_{i=1}^{n} (y_i - \bar{y})^2}$$ | Values closer to 1 indicate a better fit |
+
+
+
