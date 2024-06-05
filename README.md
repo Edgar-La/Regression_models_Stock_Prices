@@ -61,3 +61,19 @@ We can see this in the following image:
   <img src="https://github.com/Edgar-La/Regression_models_Stock_Prices/blob/main/images/train_test_data.png" alt="train_test" width="1000"/> </a>
  </p>
  
+## Process data
+### Make chunks of time-data
+
+In order to find paterns in the data, we give the data some special estructure that we call chunks i.e.time windows:
+* take the data and makes chunk, the chunk shape is a window of (7,5)
+* 7 are the days and 5 are the attributes (open, high, low, close, volume)
+* for wach chunk, we add a target that will be the _Close_ value of the 8th day
+* the chunks will have an offset of 1 day i.e. the window will slide one day to make the next time-window and the next target value
+
+### Reshape data
+In order to employ classic regression models, we need to give the data a valid shape to be compatible with the model.
+Thats why we flateen our data. Previously oru data has a shape of (7,5), now will be (35,)
+
+### Normalize data
+We implement a normalization using standard-deviation like:
+$$z = \frac{X - \mu}{\sigma}$$
